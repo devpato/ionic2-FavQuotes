@@ -1,25 +1,18 @@
+import { Quote } from './../../data/quote.interface';
+import { QuotesService } from './../../services/quotes';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-/**
- * Generated class for the FavoritesPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
-
-@IonicPage()
 @Component({
   selector: 'page-favorites',
   templateUrl: 'favorites.html',
 })
 export class FavoritesPage {
+  quotes: Quote[];
+  constructor(public quotesService: QuotesService) {}
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad FavoritesPage');
+  ionViewWillEnter() { //this will work even if the page is cached
+    this.quotes = this.quotesService.getFavoriteQuotes();
   }
 
 }
