@@ -10,7 +10,13 @@
   <ion-card *ngFor="let quote of quoteGroup.quotes; let i = index">
     <ion-card-header> #{{i+1}}</ion-card-header>
     <ion-card-content>
-      "{{quote.text}}""
-    </ion-card-content>
+      <p>"{{quote.text}}"</p>
+      <p text-right class="author">{{quote.person}}</p>
+    </ion-card-content>  
+      <ion-row>
+        <ion-col text-right>
+          <button ion-button clear (click)="onAddToFavorite(quote)"><ion-icon name="star" item-left></ion-icon></button>
+        </ion-col>
+      </ion-row>
   </ion-card>
 </ion-content>
