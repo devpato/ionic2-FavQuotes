@@ -1,3 +1,4 @@
+import { QuotesService } from './../services/quotes';
 import { TabsPage } from './../pages/tabs/tabs';
 import { SettingsPage } from './../pages/settings/settings';
 import { QuotesPage } from './../pages/quotes/quotes';
@@ -40,7 +41,8 @@ import { MyApp } from './app.component';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    QuotesService //this is the name of the service the actual name inside of the file
   ]
 })
 export class AppModule {}
