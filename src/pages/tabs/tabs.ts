@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
     selector: 'page-tabs',
     template: `<ion-tabs>
                  <ion-tab [root]="favoritesPage" tabTitle="Favorites" tabIcon="star"></ion-tab>
-                 <ion-tab [root]="libraryPage" tabTitle="Favorites" tabIcon="book"></ion-tab>
+                 <ion-tab [root]="libraryPage" tabTitle="Categories" tabIcon="book"></ion-tab>
               </ion-tabs>
               `
 
