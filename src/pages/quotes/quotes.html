@@ -6,17 +6,17 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding no-bounce >
   <ion-card *ngFor="let quote of quoteGroup.quotes; let i = index">
     <ion-card-header> #{{i+1}}</ion-card-header>
-    <ion-card-content>
+    <ion-card-content no-bounce class="no-scroll">
       <p>"{{quote.text}}"</p>
       <p text-right class="author">{{quote.person}}</p>
     </ion-card-content>  
-      <ion-row>
+      <ion-row  no-bounce class="no-scroll">
         <ion-col text-right>
           <button ion-button clear (click)="onAddToFavorite(quote)" *ngIf="!isFavorite(quote)"><ion-icon name="star" item-left></ion-icon></button>
-          <button ion-button clear (click)="onRemoveToFavorite(quote)" *ngIf="isFavorite(quote)" color="danger"><ion-icon name="star" item-left></ion-icon>Unfavorite</button>
+          <button ion-button clear (click)="onRemoveToFavorite(quote)" *ngIf="isFavorite(quote)" color="danger">Unfavorite</button>
         </ion-col>
       </ion-row>
   </ion-card>

@@ -7,12 +7,12 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding class="customedPadding">
   <ion-list>
     <ion-item-sliding *ngFor="let quote of quotes">
-      <ion-item  (click)="onViewQuote(quote)">
-        <h2>{{quote.person}}</h2>
-        <p>{{quote.text}}</p>
+      <ion-item  (click)="onViewQuote(quote)" style="padding:0px !important;">
+        <h2 class="leftPadding">{{quote.person}}</h2>
+        <p class="leftPadding">{{quote.text}}</p>
       </ion-item>
       <ion-item-options>
         <button ion-button color="danger" (click)="onRemoveToFavorite(quote)">

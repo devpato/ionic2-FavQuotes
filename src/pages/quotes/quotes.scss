@@ -11,3 +11,8 @@ page-quotes {
         }
     }
 }
+
+::-webkit-scrollbar { 
+    display: none; 
+    -ms-overflow-style: none;
+}

@@ -16,6 +16,11 @@ export default [
         id: '3',
         person: 'Robert H. Schuller',
         text: 'What great thing would you attempt if you knew you could not fail?'
+      },
+       {
+        id: '4',
+        person: 'Robert H. Schuller',
+        text: 'What great thing would you attempt if you knew you could not fail?'
       }
     ],
     icon: 'brush'
