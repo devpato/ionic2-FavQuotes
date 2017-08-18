@@ -1,3 +1,4 @@
+import { MenuServices } from './../../services/menu';
 import { QuotePage } from './../quote/quote';
 import { Quote } from './../../data/quote.interface';
 import { QuotesService } from './../../services/quotes';
@@ -12,7 +13,8 @@ export class FavoritesPage {
   quotes: Quote[];
   constructor(public quotesService: QuotesService,
                      private modalCtrl: ModalController,
-                     private menuCtrl: MenuController
+                     private menuCtrl: MenuController,
+                     private menuService: MenuServices
   ) {}
 
   ionViewWillEnter() { //this will work even if the page is cached
@@ -41,4 +43,17 @@ export class FavoritesPage {
     /*onOpenMenu() {
       this.menuCtrl.open();
     }*/
+
+    /*getBackground() {
+      this.menuService.isAltBackground() ? 'altBackground': 'primary';
+    }*/
+
+    
+  getBackground() {
+    return this.menuService.isAltBackground() ? 'altQuoteBackground' : 'quoteBackground';
+  }
+
+  isAltBackground() {
+    return this.menuService.isAltBackground();
+  }
 }
