@@ -2,7 +2,7 @@ import { QuotePage } from './../quote/quote';
 import { Quote } from './../../data/quote.interface';
 import { QuotesService } from './../../services/quotes';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController, MenuController } from 'ionic-angular';
 
 @Component({
   selector: 'page-favorites',
@@ -11,7 +11,8 @@ import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angu
 export class FavoritesPage {
   quotes: Quote[];
   constructor(public quotesService: QuotesService,
-                     private modalCtrl: ModalController
+                     private modalCtrl: ModalController,
+                     private menuCtrl: MenuController
   ) {}
 
   ionViewWillEnter() { //this will work even if the page is cached
@@ -35,4 +36,9 @@ export class FavoritesPage {
        this.quotesService.removeQuoteFromFavorites(quote);
        this.quotes = this.quotesService.getFavoriteQuotes();
     }
+
+    //Open Top Menu
+    /*onOpenMenu() {
+      this.menuCtrl.open();
+    }*/
 }
