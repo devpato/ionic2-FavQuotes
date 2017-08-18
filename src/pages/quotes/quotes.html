@@ -15,7 +15,8 @@
     </ion-card-content>  
       <ion-row>
         <ion-col text-right>
-          <button ion-button clear (click)="onAddToFavorite(quote)"><ion-icon name="star" item-left></ion-icon></button>
+          <button ion-button clear (click)="onAddToFavorite(quote)" *ngIf="!isFavorite(quote)"><ion-icon name="star" item-left></ion-icon></button>
+          <button ion-button clear (click)="onRemoveToFavorite(quote)" *ngIf="isFavorite(quote)" color="danger"><ion-icon name="star" item-left></ion-icon>Unfavorite</button>
         </ion-col>
       </ion-row>
   </ion-card>

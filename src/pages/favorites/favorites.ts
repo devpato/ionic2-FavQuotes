@@ -21,5 +21,18 @@ export class FavoritesPage {
   onViewQuote(quote: Quote) {
     const modal = this.modalCtrl.create(QuotePage, quote);
     modal.present();
+   /* modal.onDidDismiss((remove:boolean) => {
+      console.log(remove);
+    });*/
+    modal.onDidDismiss((remove:boolean) => {//when i click close
+      if(remove) {
+        this.onRemoveToFavorite(quote)
+      }
+    });  
   }
+  //Remove on slide to the left
+   onRemoveToFavorite(quote: Quote) {
+       this.quotesService.removeQuoteFromFavorites(quote);
+       this.quotes = this.quotesService.getFavoriteQuotes();
+    }
 }

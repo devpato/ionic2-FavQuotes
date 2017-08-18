@@ -18,8 +18,8 @@ export class QuotePage {
 
   }
   
-  onClose() {
-    this.viewCtrl.dismiss(); //Deletes the page
+  onClose(remove = false) {
+    this.viewCtrl.dismiss(remove); //Deletes the page and unfavorites
   }
 
 }

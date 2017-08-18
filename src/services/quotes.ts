@@ -5,8 +5,15 @@ export class QuotesService {
     private favoriteQuotes: Quote[] = [];  
 
     addQuoteToFavorites(quote: Quote) {
-        this.favoriteQuotes.push(quote);
-        console.log(this.favoriteQuotes);
+       if (this.favoriteQuotes.filter(function(e) { 
+           return e.id == quote.id; }
+           ).length > 0) {
+            console.log("added to fav already");
+        } else {
+           this.favoriteQuotes.push(quote);
+            console.log(this.favoriteQuotes);    
+        }
+        
     }
 
     removeQuoteFromFavorites(quote: Quote) {
@@ -20,4 +27,9 @@ export class QuotesService {
         return this.favoriteQuotes.slice();
     }
 
+    isQuoteFavorite(quote: Quote) {
+        return this.favoriteQuotes.find((quoteEl: Quote) => {
+            return quoteEl.id == quote.id;
+        });
+    }
 }

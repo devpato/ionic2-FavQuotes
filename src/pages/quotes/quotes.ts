@@ -45,4 +45,31 @@ export class QuotesPage implements OnInit {
       alert.present();
     }
 
+    onRemoveToFavorite(selectedQuote:Quote) {//Alert on Ionic Doc
+      const alert = this.alertCtrl.create({
+        title:'Remove Quote',
+        subTitle: 'Are you sure?',
+        message: 'Are yo sure you want to remove quote from Favorites?',
+        buttons: [
+          {
+            text: 'Yes',
+            handler: ()=> {
+              this.quotesService.removeQuoteFromFavorites(selectedQuote);
+            }
+          },
+          {
+            text: 'No',
+            handler: ()=> {
+              console.log("Oops!");
+            }
+          }
+        ]
+      });
+      alert.present();
+    }
+
+    isFavorite(quote: Quote) {
+      return this.quotesService.isQuoteFavorite(quote);
+    }
+
 }
